@@ -1,0 +1,26 @@
+[package]
+name = "proycol_rust"
+version = "0.1.0"
+edition = "2021"
+
+# La configuración 'resolver = "2"' es importante para la gestión de dependencias en Rust 2021.
+resolver = "2"
+
+[dependencies]
+# --- Dependencias del Servidor API (Hito M1 - Mínimo) ---
+
+# Framework web asíncrono
+actix-web = "4.0" 
+
+# Configuración de CORS (necesario para el frontend HTML)
+actix-cors = "0.6" 
+
+# Runtime asíncrono principal
+tokio = { version = "1", features = ["full"] } 
+
+# Serialización y Deserialización de JSON (para las peticiones /evaluate)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Base de datos local (para las 7 reglas y registros futuros)
+rusqlite = { version = "0.29", features = ["bundled"] }

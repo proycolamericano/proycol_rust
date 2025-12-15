@@ -1,0 +1,16 @@
+# Binarios generados
+/target/
+
+# Archivos de la base de datos local
+*.sqlite
+*.sqlite3
+
+# Dependencias del paquete
+/Cargo.lock
+
+# Logs y archivos temporales del editor
+*.log
+*~
+
+# Archivo del frontend de prueba
+proycol_rwa_evaluator.html
