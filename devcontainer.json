@@ -1,0 +1,20 @@
+cat <<EOF > .devcontainer/devcontainer.json
+{
+    "name": "PROYCOL Solana Dev Env",
+    "image": "mcr.microsoft.com/devcontainers/rust:1",
+    "features": {
+        "ghcr.io/devcontainers/features/node-js:1": {}
+    },
+    "postCreateCommand": "cargo build",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "tamasfe.even-better-toml",
+                "serayuzgur.crates"
+            ]
+        }
+    },
+    "forwardPorts": [8080]
+}
+EOF
