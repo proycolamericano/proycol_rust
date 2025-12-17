@@ -1,0 +1,14 @@
+cat <<EOF > .devcontainer/devcontainer.json
+{
+    "name": "Rust en Codespaces",
+    "image": "mcr.microsoft.com/devcontainers/rust:1",
+    "forwardPorts": [8080],
+    "postCreateCommand": "rustup component add rust-analyzer",
+    "customizations": {
+        "vscode": {
+            "extensions": ["rust-lang.rust-analyzer"]
+        }
+    }
+}
+EOF
+
