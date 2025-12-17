@@ -27,24 +27,40 @@
         <p style="font-size: 0.8em; color: #94a3b8; margin-top: 20px;">Infraestructura preparada para Solana Foundation Grant</p>
     </div>
 
-    <script>
-        async function checkAPI() {
-            const statusText = document.getElementById('api-result');
-            statusText.innerText = "Consultando...";
-            try {
-                // window.location.origin detecta automáticamente la URL de tu Codespace
-                const response = await fetch(window.location.origin + '/api/status');
-                if (!response.ok) throw new Error("Servidor no responde");
-                
-                const data = await response.json();
-                statusText.innerText = `> ${data.project} | > ${data.network} | > STATUS: ${data.status}`;
-                statusText.style.color = "#14f195";
-            } catch (error) {
-                statusText.innerText = "Error: Verifica que el puerto 8080 sea PÚBLICO";
-                statusText.style.color = "#ff4b4b";
-                console.error(error);
-            }
+<script>
+    async function checkAPI() {
+        const statusText = document.getElementById('api-result');
+        statusText.innerText = "Consultando en puerto 8081...";
+        try {
+            // Intentamos conectar con el puerto 8081
+            const response = await fetch('http://localhost:8081/api/status');
+            if (!response.ok) throw new Error("Servidor no responde");
+            
+            const data = await response.json();
+            statusText.innerText = `> ${data.project} | > ${data.network} | > STATUS: ${data.status}`;
+            statusText.style.color = "#14f195";
+        } catch (error) {
+            statusText.innerText = "Error: Verifica que el servidor Rust esté corriendo en el puerto 8081";
+            statusText.style.color = "#ff4b4b";
+            console.error("Error detallado:", error);
         }
-    </script>
-</body>
-</html>
+    }
+</script><script>
+    async function checkAPI() {
+        const statusText = document.getElementById('api-result');
+        statusText.innerText = "Consultando en puerto 8081...";
+        try {
+            // Intentamos conectar con el puerto 8081
+            const response = await fetch('http://localhost:8081/api/status');
+            if (!response.ok) throw new Error("Servidor no responde");
+            
+            const data = await response.json();
+            statusText.innerText = `> ${data.project} | > ${data.network} | > STATUS: ${data.status}`;
+            statusText.style.color = "#14f195";
+        } catch (error) {
+            statusText.innerText = "Error: Verifica que el servidor Rust esté corriendo en el puerto 8081";
+            statusText.style.color = "#ff4b4b";
+            console.error("Error detallado:", error);
+        }
+    }
+</script>
